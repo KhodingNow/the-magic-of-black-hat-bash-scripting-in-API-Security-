@@ -1,0 +1,12 @@
+#!/bin/bash
+
+INANI_LOKUQALA="isinye"
+INANAI_LESIBINI="isibini"
+
+if [[ "${INANI_LOKUQALA}"  ==  "${INANI_LESIBINI}"  ]]; then
+
+    echo "They are equal"
+else
+    echo "THey are not equal"
+fi
+

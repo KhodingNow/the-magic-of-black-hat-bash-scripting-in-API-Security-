@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Multiple 404s from same IP
+
+awk '/ 404 / {print $1}' access.log | sort | uniq -c | sort -rn | head -5
+
+# Rapid requests from the same IP (more than 10 log)
+
+awk '{print $1}' access.log | sort | unique -c | awk '$1 >  10 {print $2 ": " $1 "requests"}'
+
+# Requests to hidden/admin paths
+
+grep -E "(\.htacces|\.git|\.env|phpmyadmin|admin)" access.log

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Top 10 IPs making requests
+
+awk '{print $1}' access.log | sort | uniq -c | sort -rn | head -10
+
+# Find requests from specific IP
+
+grep "^157.48.153.185 " access.log
+
+# Count requests per IP
+
+awk '{ip_count[$1]++} END {for (ip in ip_count) print ip, ip_count[ip]}' access.log | sort -k2 -rn
+
+# Find image requests
+
+grep -i "\.jpg\|.png\|\.gif\|\.css\|\.js" access.log | head -5

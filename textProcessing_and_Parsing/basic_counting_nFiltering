@@ -1,0 +1,16 @@
+#!/bin/bash
+
+wc -l access.log
+
+# Count 404 errors
+
+grep " 404 " access.log | wc -l
+
+# Count " 200 " access.log | wc -l 
+
+grep " 200 " access.log | wc -l
+
+# Find all POST requests
+
+grep "\"POST " access.log
+

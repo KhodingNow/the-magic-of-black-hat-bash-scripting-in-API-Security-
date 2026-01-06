@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Find all bots/crawlers
+
+grep -i "bot\|crawler\|spider" access.log
+
+# Count different browsers
+
+grep -c "Chrome" access.log
+grep -c "Firefox" access.log
+grep -c "Safari" access.log
+
+# Extract all unique user agents
+
+awk -F'"' '{print $6}' access.log | sort -u

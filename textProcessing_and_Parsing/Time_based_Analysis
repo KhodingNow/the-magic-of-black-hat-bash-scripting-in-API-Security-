@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Requests per hour
+
+awk -F'[ :]' '{print $4}' access.log | sort | uniq -c
+
+# Find requests between specific times
+
+grep "19/Dec/2020:14" access.log
+
+# Count requests by date
+
+cut -d[ -f2 access.log | cut -d: -f1 | sort | uniq -c
